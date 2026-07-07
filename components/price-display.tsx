@@ -24,7 +24,7 @@ const getTimeframeText = (tf: string) => {
     '3M': 'Últimos 3 meses',
     '6M': 'Últimos 6 meses',
     '1A': 'Año pasado',
-    '5A': 'Últimos 5 años',
+    MAX: 'Máximo disponible',
   };
   return map[tf];
 };

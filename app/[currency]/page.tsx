@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
 
 import { getPrice, getHistoricalData } from '@/app/actions';
 
-import { DEFAULT_CURRENCY } from '@/lib/types';
+import { DEFAULT_CURRENCY, SUPPORTED_CURRENCIES } from '@/lib/types';
 
 import { SatTracker } from '@/components/sat-tracker';
 
@@ -13,7 +14,14 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   const { currency } = await params;
 
-  const resolvedCurrency = currency || DEFAULT_CURRENCY;
+  const resolvedCurrency = (currency || DEFAULT_CURRENCY).toUpperCase();
+  const isSupportedCurrency = SUPPORTED_CURRENCIES.some(
+    (supportedCurrency) => supportedCurrency.code === resolvedCurrency,
+  );
+
+  if (!isSupportedCurrency) {
+    notFound();
+  }
 
   // Fetch en paralelo en el servidor
   const [price, historicalData] = await Promise.all([

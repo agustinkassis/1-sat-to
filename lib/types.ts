@@ -41,5 +41,5 @@ export const TIMEFRAME_CONFIG: Record<
   '3m': { label: '3M', textLabel: '3 meses', daysBack: 90, intervalMinutes: 480 },
   '6m': { label: '6M', textLabel: '6 meses', daysBack: 180, intervalMinutes: 720 },
   '1y': { label: '1A', textLabel: '1 año', daysBack: 365, intervalMinutes: 1440 },
-  '5y': { label: '5A', textLabel: '5 años', daysBack: 1825, intervalMinutes: 4320 },
+  '5y': { label: 'MAX', textLabel: 'Máximo disponible', daysBack: 1825, intervalMinutes: 4320 },
 };
