@@ -31,7 +31,7 @@ export function PriceChart({ data, isLoading, onHover }: PriceChartProps) {
   const [activePoint, setActivePoint] = useState<any>(null);
   const [tooltipX, setTooltipX] = useState(0);
 
-  if (isLoading || !chartData.length) {
+  if (isLoading) {
     return (
       <div className='absolute z-0 bottom-0 w-full h-[80vh] flex items-center justify-center'>
         <div className='w-8 h-8 border-4 border-neutral-500/30 border-t-neutral-900 rounded-full animate-spin' />
